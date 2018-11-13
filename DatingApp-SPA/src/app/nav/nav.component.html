@@ -1,73 +1,75 @@
 <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Dating App</a>
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container">
+      <a class="navbar-brand" href="#">Dating App</a>
 
-  <!-- 此button用不到-->
-  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>-->
-
-  <!-- <div class="collapse navbar-collapse" id="navbarsExampleDefault"> -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Matches 
-          <!-- <span class="sr-only">(current)</span> -->
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Lists</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" (click) ="logout()">Logout</a>
-        </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li> -->
-    </ul>
-
-    <!-- copy from getbootstrap (dropdownlink) -->
-    <!-- <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-      
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div> -->
-
-    <!-- 進行修改 -->  
-<!-- 直接key a-ngif 帶出標籤 -->  
- <div *ngIf="loggedIn()" class="dropdown">
-        <a class="dropdown-toggle text-light">
-          Welcome User
-        </a>
-      
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#"><i class="fa fa-user"></i><!--fa fa-user是font-awesome 標籤-->Edit Profile</a>
-         <div class="dropdown-divider"></div>  <!--直接打div.dropdown-divider即可帶出標籤-->
-          <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>logout</a>
-        </div>
-      </div> 
-
-    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
-      <input class="form-control mr-sm-2" type="text" name="username" 
-      placeholder="Username" required [(ngModel)]="model.username">
-      <input class="form-control mr-sm-2" type="password" name="password" 
-      placeholder="Password" required [(ngModel)]="model.password">
-      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-      <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
-    </form>
-  <!-- </div> -->
+      <!-- 此button用不到-->
+      <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>-->
+    
+      <!-- <div class="collapse navbar-collapse" id="navbarsExampleDefault"> -->
+        <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Matches 
+              <!-- <span class="sr-only">(current)</span> -->
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Lists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Messages</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" (click) ="logout()">Logout</a>
+            </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
+    
+        <!-- copy from getbootstrap (dropdownlink) -->
+        <!-- <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div> -->
+    
+        <!-- 進行修改 -->  
+    <!-- 直接key a-ngif 帶出標籤 -->  
+     <div *ngIf="loggedIn()" class="dropdown" dropdown>
+            <a class="dropdown-toggle text-light" dropdownToggle>
+              Welcome {{authService.decodedToken.unique_name | titlecase }}
+            </a>
+          
+            <div class="dropdown-menu mt-3" *dropdownMenu>
+              <a class="dropdown-item" href="#"><i class="fa fa-user"></i><!--fa fa-user是font-awesome 標籤-->Edit Profile</a>
+             <div class="dropdown-divider"></div>  <!--直接打div.dropdown-divider即可帶出標籤-->
+              <a class="dropdown-item" (click) ="logout()"><i class="fa fa-sign-out"></i>logout</a>
+            </div>
+          </div> 
+    
+        <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+          <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
+          <input class="form-control mr-sm-2" type="text" name="username" 
+          placeholder="Username" required [(ngModel)]="model.username">
+          <input class="form-control mr-sm-2" type="password" name="password" 
+          placeholder="Password" required [(ngModel)]="model.password">
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+          <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+        </form>
+      <!-- </div> -->
+  </div>
 </nav>
