@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Observable } from '../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -27,6 +27,10 @@ getUsers(): Observable<User[]> {
 getUser(id): Observable<User> {
   // return this.http.get<User>(this.baseUrl + 'users/' + id, httpOptions);
   return this.http.get<User>(this.baseUrl + 'users/' + id);
+}
+
+updateUser(id: number, user: User) {
+  return this.http.put(this.baseUrl + 'users/' + id, user);
 }
 
 }

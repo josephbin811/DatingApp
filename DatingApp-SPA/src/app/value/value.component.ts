@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '../../../node_modules/@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { HttpClient } from '../../../node_modules/@angular/common/http';
   templateUrl: './value.component.html',
   styleUrls: ['./value.component.css']
 })
-export class ValueComponent implements OnInit {  
+export class ValueComponent implements OnInit {
   values: any;
   constructor(private http: HttpClient) { }
 
