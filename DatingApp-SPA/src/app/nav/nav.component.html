@@ -51,6 +51,10 @@
         <!-- 進行修改 -->  
     <!-- 直接key a-ngif 帶出標籤 -->  
      <div *ngIf="loggedIn()" class="dropdown" dropdown>
+       <span class="mr-1">
+         <!-- <img src="{{authService.currentUser.photoUrl}}" alt=""> -->
+         <img src="{{photoUrl}}" alt="">
+       </span>
             <a class="dropdown-toggle text-light" dropdownToggle>
               Welcome {{authService.decodedToken.unique_name | titlecase }}
             </a>
