@@ -6,4 +6,4 @@ DatingApp.API/dotnet run
 DatingApp-SPA/ng serve
 ## Run Application
 http://localhost:4200/  
-Use default accountL lora/password to login in
+Use default account lora/password to login in
